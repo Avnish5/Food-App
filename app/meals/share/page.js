@@ -1,13 +1,11 @@
-import ImagePicker from '@/components/meals/image-picker'
-import classes from './page.module.css'
-import { shareMeal } from '@/lin/actions'
-import MealsFormSubmit from '@/components/meals/meals-form-submit'
-export default function ShareMealPage()
-{
-
-  
-    return(
-        <>
+import ImagePicker from "@/components/meals/image-picker";
+import classes from "./page.module.css";
+import { shareMeal } from "@/lin/actions";
+import MealsFormSubmit from "@/components/meals/meals-form-submit";
+import { useActionState } from "react";
+export default function ShareMealPage() {
+  return (
+    <>
       <header className={classes.header}>
         <h1>
           Share your <span className={classes.highlight}>favorite meal</span>
@@ -43,12 +41,12 @@ export default function ShareMealPage()
               required
             ></textarea>
           </p>
-          <ImagePicker label="Your Image" name="image"/>
+          <ImagePicker label="Your Image" name="image" />
           <p className={classes.actions}>
-           <MealsFormSubmit/>
+            <MealsFormSubmit />
           </p>
         </form>
       </main>
     </>
-    )
+  );
 }

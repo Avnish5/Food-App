@@ -1,22 +1,34 @@
-'use server'
+"use server";
 
 import { redirect } from "next/navigation";
-import { saveMeal } from "./meals"
+import { saveMeal } from "./meals";
 
-export async function shareMeal(formData)
-  {
-    
-    const meal={
-      title:formData.get('title'),
-      summary:formData.get('summary'),
-      instructions:formData.get('instructions'),
-      image:formData.get('image'),
-      creator:formData.get('name'),
-      creator_email:formData.get('email')
-      
-    }
+function isValidText(text) {
+  return !text || text.trim() === "";
+}
+export async function shareMeal(formData) {
+  const meal = {
+    title: formData.get("title"),
+    summary: formData.get("summary"),
+    instructions: formData.get("instructions"),
+    image: formData.get("image"),
+    creator: formData.get("name"),
+    creator_email: formData.get("email"),
+  };
 
-    await saveMeal(meal);
-    redirect('/meals');
-
+  if (
+    isValidText(meal.title) ||
+    isValidText(meal.summary) ||
+    isValidText(meal.instructions) ||
+    isValidText(meal.creator) ||
+    isValidText(meal.creator_email) ||
+    !meal.creator_email.includes("@") ||
+    !meal.image ||
+    meal.image.size === 0
+  ) {
+    throw new Error("Inavlid input");
   }
+
+  await saveMeal(meal);
+  redirect("/meals");
+}
