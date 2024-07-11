@@ -60,4 +60,5 @@ Contributions are welcome! If you'd like to contribute to this project, please f
  - [Great course on Udemy by Maximilian Schwarzmüller](https://www.udemy.com/course/nextjs-react-the-complete-guide/?couponCode=LETSLEARNNOWPP)
  
 
+![Logo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSHzhiBCKHo7mIImBkNqbVA7jAizJ4-sXxdxA&s)
 
